@@ -1,6 +1,6 @@
 import React, { useState, createContext } from "react"
 
-export const LocationContext = createContext
+export const LocationContext = createContext()
 
 export const LocationProvider = (props) => {
     const [locations, setLocations] = useState([])
