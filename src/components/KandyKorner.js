@@ -3,11 +3,11 @@ import "./KandyKorner.css"
 
 export const KandyKorner = () => (
     <>
-        <h2>Nashville Kennels</h2>
-        <small>Loving care when you're not there.</small>
+        <h2>Kandy Korner</h2>
+        <small>Loving candy in your mouth.</small>
         <address>
-            <div>Visit Us at the Nashville North Location</div>
-            <div>500 Puppy Way</div>
+            <div>Visit Us at the Candy Shop</div>
+            <div>500 Candy Way</div>
         </address>
     </>
 )

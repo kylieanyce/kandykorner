@@ -1,6 +1,20 @@
 import React, { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom"
 import { LocationContext } from "./LocationProvider"
 import { LocationCard } from "./Location"
 import "./Location.css"
 
+export const LocationList = () => {
+    const { locations, getLocations } = useContext(LocationContext)
+
+    useEffect(() => {
+        getLocations()
+    }, [])
+
+    return (
+        <div className="locations">
+            {locations.map(locationObj => {
+                return <LocationCard key={locationObj.id} location={locationObj}/>
+            })}
+        </div>
+    )
+}
