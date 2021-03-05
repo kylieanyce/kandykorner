@@ -6,11 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: darkturquoise;
-  color: magenta;
+  color: darkviolet;
 }
 
 a {
-  color: magenta
+  color: darkviolet
 }
 a:visited {
   color: mediumpurple;
