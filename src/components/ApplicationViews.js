@@ -11,6 +11,9 @@ import { LocationList } from "./locations/LocationList";
 import { ProductList } from "./products/ProductList";
 import { EmployeeList } from "./employees/EmployeeList";
 
+import { EmployeeForm } from "./employees/EmployeeForm";
+import { EmployeeDetail } from "./employees/EmployeeDetail";
+
 export const ApplicationViews = () => {
     return (
         <>
@@ -18,25 +21,31 @@ export const ApplicationViews = () => {
                 <Home />
             </Route>
 
-            <Route path="/locations">
-                <LocationProvider>
+            <LocationProvider>
+                <Route path="/locations">
                     <LocationList />
-                </LocationProvider>
-            </Route>
+                </Route>
+            </LocationProvider>
 
-            <Route path="/products">
-                <ProductProvider>
-                    <ProductTypesProvider>
+            <ProductProvider>
+                <ProductTypesProvider>
+                    <Route path="/products">
                         <ProductList />
-                    </ProductTypesProvider>
-                </ProductProvider>
-            </Route>
+                    </Route>
+                </ProductTypesProvider>
+            </ProductProvider>
 
-            <Route path="/employees">
-                <EmployeeProvider>
+            <EmployeeProvider>
+                <Route exact path="/employees">
                     <EmployeeList />
-                </EmployeeProvider>
-            </Route>
+                </Route>
+                <Route path="/employees/details">
+                    <EmployeeDetail />
+                </Route>
+                <Route path="/employees/create">
+                    <EmployeeForm />
+                </Route>
+            </EmployeeProvider>
         </>
     )
 }

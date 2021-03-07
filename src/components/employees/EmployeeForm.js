@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from "react"
 import { LocationContext } from "../locations/LocationProvider"
 import { EmployeeContext } from "./EmployeeProvider"
 import { useHistory, useParams } from 'react-router-dom';
-import { EmployeeCard } from "./Employee";
+import "./Employee.css"
+
 
 export const EmployeeForm = () => {
     const { addEmployee, getEmployeeById, updateEmployee } = useContext(EmployeeContext)
     const { locations, getLocations } = useContext(LocationContext)
-
+    
     const [employee, setEmployee] = useState({
         name: "",
         locationId: "",
@@ -16,10 +17,10 @@ export const EmployeeForm = () => {
         hourlyRate: 0,
         id: 0
     });
-
-    const [isLoading, setIsLoading] = useState(true);
+    
     const { employeeId } = useParams();
     const history = useHistory();
+    const [isLoading, setIsLoading] = useState(true);
 
     const handleControlledInputChange = (event) => {
         const newEmployee = { ...employee }
