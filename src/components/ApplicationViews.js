@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import { Home } from "./Home";
 import { LocationProvider } from "./locations/LocationProvider";
 import { ProductProvider } from "./products/ProductProvider";
+import { ProductTypesProvider } from "./products/ProductTypes";
 
 import { LocationList } from "./locations/LocationList";
 import { ProductList } from "./products/ProductList";
@@ -23,7 +24,9 @@ export const ApplicationViews = () => {
 
             <Route path="/products">
                 <ProductProvider>
-                    <ProductList />
+                    <ProductTypesProvider>
+                        <ProductList />
+                    </ProductTypesProvider>
                 </ProductProvider>
             </Route>
         </>
