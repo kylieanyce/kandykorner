@@ -24,6 +24,9 @@ export const EmployeeDetail = () => {
         <section className="employee">
             <h3 className="employee__name">{employee.name}</h3>
             <div className="employee__location">Location: {employee.location?.name}</div>
+            <p className="employee__manager">Manager: {employee.manager === true ? "Yes" : "No"}</p>
+            <p className="employee__fullTime">Full Time: {employee.fullTime === true ? "Yes" : "No"}</p>
+            <p className="employee__hourlyRate">Hourly Rate: {employee.hourlyRate}</p>
             <button onClick={() => {
                 history.push(`/employees/edit/${employee.id}`)
             }}>Edit</button>

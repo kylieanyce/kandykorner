@@ -42,7 +42,7 @@ export const EmployeeForm = () => {
                     hourlyRate: employee.hourlyRate,
                     id: employee.id
                 })
-                    .then(() => history.push(`/employees/${employee.id}`))
+                    .then(() => history.push(`/employees/details/${employee.id}`))
             } else {
                 addEmployee({
                     name: employee.name,

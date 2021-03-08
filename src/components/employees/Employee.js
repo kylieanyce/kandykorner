@@ -11,9 +11,6 @@ export const EmployeeCard = ({ employee }) => (
             </Link>
         </h3>
 
-        {/* <p className="employee__name">Manager: {employee.manager.toLocaleString()}</p>
-        <p className="employee__name">Full Time: {employee.fullTime.toLocaleString()}</p>
-        <p className="employee__name">Hourly Rate: {employee.hourlyRate}</p>
-        <p className="employee__name">Location: {employee.location?.name}</p> */}
+        
     </section>
 )
