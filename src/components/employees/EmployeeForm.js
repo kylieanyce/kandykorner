@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react"
 import { LocationContext } from "../locations/LocationProvider"
 import { EmployeeContext } from "./EmployeeProvider"
 import { useHistory, useParams } from 'react-router-dom';
+import { Checkbox } from 'react-input-checkbox';
 import "./Employee.css"
 
 
 export const EmployeeForm = () => {
     const { addEmployee, getEmployeeById, updateEmployee } = useContext(EmployeeContext)
     const { locations, getLocations } = useContext(LocationContext)
-    
+
     const [employee, setEmployee] = useState({
         name: "",
         locationId: "",
@@ -17,7 +18,7 @@ export const EmployeeForm = () => {
         hourlyRate: 0,
         id: 0
     });
-    
+
     const { employeeId } = useParams();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +26,7 @@ export const EmployeeForm = () => {
     const handleControlledInputChange = (event) => {
         const newEmployee = { ...employee }
         newEmployee[event.target.id] = event.target.value
+        console.log(newEmployee)
         setEmployee(newEmployee)
     }
 
@@ -97,14 +99,26 @@ export const EmployeeForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Manager:</label>
-                    <input type="text" id="manager" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="true" value={employee.manager} />
+                    <select defaultValue={employee.manager} name="manager" id="manager" onChange={handleControlledInputChange} className="form-control" >
+                        <option value="0">Select an option</option>
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
                 </div>
             </fieldset>
 
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Full Time:</label>
-                    <input type="text" id="fullTime" onChange={handleControlledInputChange} required autoFocus className="form-control" placeholder="Full Time" value={employee.fullTime} />
+                    {/* <select defaultValue={employee.fullTime} name="fullTime" id="fullTime" onChange={handleControlledInputChange} className="form-control" >
+                        <option value="0">Select an option</option>
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select> */}
+                    <input type="radio" id="fullTime" name="fullTime" onChange={handleControlledInputChange} className="form-control" value={ employee.manager }/>
+                    <label htmlFor="fullTime--true"> Yes </label>
+                    <input type="radio" id="fullTime" name="fullTime" onChange={handleControlledInputChange} className="form-control" value={ employee.manager }/>
+                    <label htmlFor="fullTime--false"> No </label>
                 </div>
             </fieldset>
 

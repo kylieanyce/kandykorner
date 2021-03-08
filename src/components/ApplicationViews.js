@@ -43,7 +43,9 @@ export const ApplicationViews = () => {
                     <EmployeeDetail />
                 </Route>
                 <Route path="/employees/create">
-                    <EmployeeForm />
+                    <LocationProvider>
+                        <EmployeeForm />
+                    </LocationProvider>
                 </Route>
             </EmployeeProvider>
         </>
